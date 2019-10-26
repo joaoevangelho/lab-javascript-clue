@@ -1,5 +1,6 @@
 const suspectsArray = [
-    { 
+    {   
+        suspect: "mrGreen",
         firstName: "Jacob",
         lastName: "Green",
         occupation: "Entrepreneur",
@@ -9,6 +10,7 @@ const suspectsArray = [
         color: "green" 
     },
     { 
+        suspect: "drOrchid",
         firstName: "Doctor",
         lastName: "Orchid",
         occupation: "Scientist",
@@ -18,6 +20,7 @@ const suspectsArray = [
         color: "white" 
     },
     { 
+        suspect: "profPlum",
         firstName: "Victor",
         lastName: "Plum",
         occupation: "Designer",
@@ -27,6 +30,7 @@ const suspectsArray = [
         color: "purple" 
     },
     { 
+        suspect: "missScarlet",
         firstName: "Kasandra",
         lastName: "Scarlet",
         occupation: "Actor",
@@ -36,6 +40,7 @@ const suspectsArray = [
         color: "red" 
     },
     { 
+        suspect: "mrsPeacock",
         firstName: "Eleanor",
         lastName: "Peacock",
         occupation: "Socialité",
@@ -45,6 +50,7 @@ const suspectsArray = [
         color: "blue" 
     },
     { 
+        suspect: "mrMustard",
         firstName: "Jack",
         lastName: "Mustard",
         occupation: "Retired Football player",
@@ -54,7 +60,6 @@ const suspectsArray = [
         color: "yellow"
      }
 ];
-
 
 const weaponsArray = [
 { name: "rope", weight: 10 },
@@ -88,37 +93,31 @@ const roomsArray = [
 
 // ITERATION 2
 
-function selectRandom(arr) {
-    if (arr === 0) {
+function selectRandom(array) {
+    if (array === 0) {
         return undefined;
-    }
-    let randomCard = arr[Math.floor(Math.random() * arr.length)];
-    return arr[randomCard];
-    console.log(randomCard);
+    };
+
+    let randomCard = array[Math.floor(Math.random() * array.length)];
+    return array[randomCard];
 };
-//selectRandom(suspectsArray);
-//selectRandom(weaponsArray);
-//selectRandom(roomsArray);
 
-function pickMistery() {
+function pickMystery() {
+
+    const suspectCard = selectRandom(suspectsArray);
+    const weaponCard = selectRandom(weaponsArray);
+    const roomCard = selectRandom(roomsArray);
+
+    return {
+    suspect: suspectCard,
+    weapon: weaponCard,
+    room: roomCard
+    };
+};
+pickMystery();
 
 
-    const suspect = selectRandom(suspectsArray);
-    const weapon = selectRandom(weaponsArray);
-    const room = selectRandom(roomsArray);
 
-
-
-/*let data = {
-  suspect: selectRandom(suspectsArray),
-  weapon: selectRandom(weaponsArray),
-  room: selectRandom(roomsArray)
-  } 
-  return data;
-  this is what i done, also correct
-  */
+function revealMystery (envelope) {
+    return `${envelope.suspect.firstName} ${envelope.suspect.lastName} killed Mr. Boddy using the ${envelope.weapon.name} in the ${envelope.room.name}!`
 }
-pickMistery();
-
-
-function 
